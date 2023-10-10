@@ -14,15 +14,16 @@ const requestListener = (request, response) => {
     let body = [];
 
     request.on("data", (chunk) => {
-      body.push(chunk);
+      body.push(chunk); // proses membaca body (hasilnya adalah buffer)
     });
 
     request.on("end", () => {
-      body = Buffer.concat(body).toString();
+      // setelah request nya selesai
+      body = Buffer.concat(body).toString(); // body akan diubah menjadi string
       response.end(`<h1>Hai, ${body}!</h1>`);
     });
 
-    response.end('Ini adalah method post')
+    response.end("Ini adalah method post");
   }
 
   if (method === "PUT") {
