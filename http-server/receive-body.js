@@ -1,3 +1,4 @@
+// https://www.dicoding.com/academies/261/tutorials/14682
 const http = require("http");
 
 const requestListener = (request, response) => {
@@ -11,6 +12,7 @@ const requestListener = (request, response) => {
   }
 
   if (method === "POST") {
+    // curl -X POST -H "Content-Type: application/json" http://localhost:5000 -d "{\"name\": \"Dicoding\"}"
     let body = [];
 
     request.on("data", (chunk) => {
